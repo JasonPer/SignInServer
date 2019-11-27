@@ -4,6 +4,10 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   imports: [
     RouterModule.forChild([
+      {
+        path: 'event-check-in',
+        loadChildren: () => import('./event-check-in/event-check-in.module').then(m => m.SignInServerEventCheckInModule)
+      }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])
   ],
