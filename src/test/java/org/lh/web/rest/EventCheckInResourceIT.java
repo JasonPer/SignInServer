@@ -42,10 +42,6 @@ public class EventCheckInResourceIT {
     private static final String DEFAULT_USER_NAME = "AAAAAAAAAA";
     private static final String UPDATED_USER_NAME = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_PHONE_NUMBER = 1;
-    private static final Integer UPDATED_PHONE_NUMBER = 2;
-    private static final Integer SMALLER_PHONE_NUMBER = 1 - 1;
-
     private static final String DEFAULT_ADDRESS = "AAAAAAAAAA";
     private static final String UPDATED_ADDRESS = "BBBBBBBBBB";
 
@@ -55,6 +51,9 @@ public class EventCheckInResourceIT {
 
     private static final Boolean DEFAULT_IS_CHECK_IN = false;
     private static final Boolean UPDATED_IS_CHECK_IN = true;
+
+    private static final String DEFAULT_PHONE_NUMBER = "AAAAAAAAAA";
+    private static final String UPDATED_PHONE_NUMBER = "BBBBBBBBBB";
 
     @Autowired
     private EventCheckInRepository eventCheckInRepository;
@@ -102,10 +101,10 @@ public class EventCheckInResourceIT {
     public static EventCheckIn createEntity(EntityManager em) {
         EventCheckIn eventCheckIn = new EventCheckIn()
             .userName(DEFAULT_USER_NAME)
-            .phoneNumber(DEFAULT_PHONE_NUMBER)
             .address(DEFAULT_ADDRESS)
             .checkTime(DEFAULT_CHECK_TIME)
-            .isCheckIn(DEFAULT_IS_CHECK_IN);
+            .isCheckIn(DEFAULT_IS_CHECK_IN)
+            .phoneNumber(DEFAULT_PHONE_NUMBER);
         return eventCheckIn;
     }
     /**
@@ -117,10 +116,10 @@ public class EventCheckInResourceIT {
     public static EventCheckIn createUpdatedEntity(EntityManager em) {
         EventCheckIn eventCheckIn = new EventCheckIn()
             .userName(UPDATED_USER_NAME)
-            .phoneNumber(UPDATED_PHONE_NUMBER)
             .address(UPDATED_ADDRESS)
             .checkTime(UPDATED_CHECK_TIME)
-            .isCheckIn(UPDATED_IS_CHECK_IN);
+            .isCheckIn(UPDATED_IS_CHECK_IN)
+            .phoneNumber(UPDATED_PHONE_NUMBER);
         return eventCheckIn;
     }
 
@@ -145,10 +144,10 @@ public class EventCheckInResourceIT {
         assertThat(eventCheckInList).hasSize(databaseSizeBeforeCreate + 1);
         EventCheckIn testEventCheckIn = eventCheckInList.get(eventCheckInList.size() - 1);
         assertThat(testEventCheckIn.getUserName()).isEqualTo(DEFAULT_USER_NAME);
-        assertThat(testEventCheckIn.getPhoneNumber()).isEqualTo(DEFAULT_PHONE_NUMBER);
         assertThat(testEventCheckIn.getAddress()).isEqualTo(DEFAULT_ADDRESS);
         assertThat(testEventCheckIn.getCheckTime()).isEqualTo(DEFAULT_CHECK_TIME);
         assertThat(testEventCheckIn.isIsCheckIn()).isEqualTo(DEFAULT_IS_CHECK_IN);
+        assertThat(testEventCheckIn.getPhoneNumber()).isEqualTo(DEFAULT_PHONE_NUMBER);
     }
 
     @Test
@@ -183,10 +182,10 @@ public class EventCheckInResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(eventCheckIn.getId().intValue())))
             .andExpect(jsonPath("$.[*].userName").value(hasItem(DEFAULT_USER_NAME.toString())))
-            .andExpect(jsonPath("$.[*].phoneNumber").value(hasItem(DEFAULT_PHONE_NUMBER)))
             .andExpect(jsonPath("$.[*].address").value(hasItem(DEFAULT_ADDRESS.toString())))
             .andExpect(jsonPath("$.[*].checkTime").value(hasItem(sameInstant(DEFAULT_CHECK_TIME))))
-            .andExpect(jsonPath("$.[*].isCheckIn").value(hasItem(DEFAULT_IS_CHECK_IN.booleanValue())));
+            .andExpect(jsonPath("$.[*].isCheckIn").value(hasItem(DEFAULT_IS_CHECK_IN.booleanValue())))
+            .andExpect(jsonPath("$.[*].phoneNumber").value(hasItem(DEFAULT_PHONE_NUMBER.toString())));
     }
     
     @Test
@@ -201,10 +200,10 @@ public class EventCheckInResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(eventCheckIn.getId().intValue()))
             .andExpect(jsonPath("$.userName").value(DEFAULT_USER_NAME.toString()))
-            .andExpect(jsonPath("$.phoneNumber").value(DEFAULT_PHONE_NUMBER))
             .andExpect(jsonPath("$.address").value(DEFAULT_ADDRESS.toString()))
             .andExpect(jsonPath("$.checkTime").value(sameInstant(DEFAULT_CHECK_TIME)))
-            .andExpect(jsonPath("$.isCheckIn").value(DEFAULT_IS_CHECK_IN.booleanValue()));
+            .andExpect(jsonPath("$.isCheckIn").value(DEFAULT_IS_CHECK_IN.booleanValue()))
+            .andExpect(jsonPath("$.phoneNumber").value(DEFAULT_PHONE_NUMBER.toString()));
     }
 
     @Test
@@ -229,10 +228,10 @@ public class EventCheckInResourceIT {
         em.detach(updatedEventCheckIn);
         updatedEventCheckIn
             .userName(UPDATED_USER_NAME)
-            .phoneNumber(UPDATED_PHONE_NUMBER)
             .address(UPDATED_ADDRESS)
             .checkTime(UPDATED_CHECK_TIME)
-            .isCheckIn(UPDATED_IS_CHECK_IN);
+            .isCheckIn(UPDATED_IS_CHECK_IN)
+            .phoneNumber(UPDATED_PHONE_NUMBER);
 
         restEventCheckInMockMvc.perform(put("/api/event-check-ins")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -244,10 +243,10 @@ public class EventCheckInResourceIT {
         assertThat(eventCheckInList).hasSize(databaseSizeBeforeUpdate);
         EventCheckIn testEventCheckIn = eventCheckInList.get(eventCheckInList.size() - 1);
         assertThat(testEventCheckIn.getUserName()).isEqualTo(UPDATED_USER_NAME);
-        assertThat(testEventCheckIn.getPhoneNumber()).isEqualTo(UPDATED_PHONE_NUMBER);
         assertThat(testEventCheckIn.getAddress()).isEqualTo(UPDATED_ADDRESS);
         assertThat(testEventCheckIn.getCheckTime()).isEqualTo(UPDATED_CHECK_TIME);
         assertThat(testEventCheckIn.isIsCheckIn()).isEqualTo(UPDATED_IS_CHECK_IN);
+        assertThat(testEventCheckIn.getPhoneNumber()).isEqualTo(UPDATED_PHONE_NUMBER);
     }
 
     @Test

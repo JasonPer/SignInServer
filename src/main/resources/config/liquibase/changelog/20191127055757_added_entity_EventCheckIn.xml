@@ -20,10 +20,6 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="phone_number" type="integer">
-                <constraints nullable="true" />
-            </column>
-
             <column name="address" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
@@ -33,6 +29,10 @@
             </column>
 
             <column name="is_check_in" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="phone_number" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 
@@ -62,10 +62,10 @@
                   tableName="event_check_in">
             <column name="id" type="numeric"/>
             <column name="user_name" type="string"/>
-            <column name="phone_number" type="numeric"/>
             <column name="address" type="string"/>
             <column name="check_time" type="datetime"/>
             <column name="is_check_in" type="boolean"/>
+            <column name="phone_number" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here, do not remove-->
         </loadData>
     </changeSet>

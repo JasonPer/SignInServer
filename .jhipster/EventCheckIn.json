@@ -1,13 +1,11 @@
 {
-    "name": "EventCheckIn",
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
     "fields": [
         {
             "fieldName": "userName",
             "fieldType": "String"
-        },
-        {
-            "fieldName": "phoneNumber",
-            "fieldType": "Integer"
         },
         {
             "fieldName": "address",
@@ -20,16 +18,18 @@
         {
             "fieldName": "isCheckIn",
             "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "String"
         }
     ],
-    "relationships": [],
     "changelogDate": "20191127055757",
-    "entityTableName": "event_check_in",
     "dto": "no",
-    "pagination": "pagination",
+    "searchEngine": false,
     "service": "serviceImpl",
+    "entityTableName": "event_check_in",
+    "databaseType": "sql",
     "jpaMetamodelFiltering": false,
-    "fluentMethods": true,
-    "clientRootFolder": "",
-    "applications": "*"
+    "pagination": "pagination"
 }

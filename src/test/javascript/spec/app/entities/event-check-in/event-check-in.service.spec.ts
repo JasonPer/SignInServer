@@ -27,7 +27,7 @@ describe('Service Tests', () => {
       httpMock = injector.get(HttpTestingController);
       currentDate = moment();
 
-      elemDefault = new EventCheckIn(0, 'AAAAAAA', 0, 'AAAAAAA', currentDate, false);
+      elemDefault = new EventCheckIn(0, 'AAAAAAA', 'AAAAAAA', currentDate, false, 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -75,10 +75,10 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             userName: 'BBBBBB',
-            phoneNumber: 1,
             address: 'BBBBBB',
             checkTime: currentDate.format(DATE_TIME_FORMAT),
-            isCheckIn: true
+            isCheckIn: true,
+            phoneNumber: 'BBBBBB'
           },
           elemDefault
         );
@@ -102,10 +102,10 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             userName: 'BBBBBB',
-            phoneNumber: 1,
             address: 'BBBBBB',
             checkTime: currentDate.format(DATE_TIME_FORMAT),
-            isCheckIn: true
+            isCheckIn: true,
+            phoneNumber: 'BBBBBB'
           },
           elemDefault
         );

@@ -24,9 +24,6 @@ public class EventCheckIn implements Serializable {
     @Column(name = "user_name")
     private String userName;
 
-    @Column(name = "phone_number")
-    private Integer phoneNumber;
-
     @Column(name = "address")
     private String address;
 
@@ -35,6 +32,9 @@ public class EventCheckIn implements Serializable {
 
     @Column(name = "is_check_in")
     private Boolean isCheckIn;
+
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -56,19 +56,6 @@ public class EventCheckIn implements Serializable {
 
     public void setUserName(String userName) {
         this.userName = userName;
-    }
-
-    public Integer getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public EventCheckIn phoneNumber(Integer phoneNumber) {
-        this.phoneNumber = phoneNumber;
-        return this;
-    }
-
-    public void setPhoneNumber(Integer phoneNumber) {
-        this.phoneNumber = phoneNumber;
     }
 
     public String getAddress() {
@@ -109,6 +96,19 @@ public class EventCheckIn implements Serializable {
     public void setIsCheckIn(Boolean isCheckIn) {
         this.isCheckIn = isCheckIn;
     }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public EventCheckIn phoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+        return this;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -132,10 +132,10 @@ public class EventCheckIn implements Serializable {
         return "EventCheckIn{" +
             "id=" + getId() +
             ", userName='" + getUserName() + "'" +
-            ", phoneNumber=" + getPhoneNumber() +
             ", address='" + getAddress() + "'" +
             ", checkTime='" + getCheckTime() + "'" +
             ", isCheckIn='" + isIsCheckIn() + "'" +
+            ", phoneNumber='" + getPhoneNumber() + "'" +
             "}";
     }
 }

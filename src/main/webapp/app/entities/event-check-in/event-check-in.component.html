@@ -19,10 +19,10 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="userName"><span jhiTranslate="signInServerApp.eventCheckIn.userName">User Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="phoneNumber"><span jhiTranslate="signInServerApp.eventCheckIn.phoneNumber">Phone Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="address"><span jhiTranslate="signInServerApp.eventCheckIn.address">Address</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="checkTime"><span jhiTranslate="signInServerApp.eventCheckIn.checkTime">Check Time</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="isCheckIn"><span jhiTranslate="signInServerApp.eventCheckIn.isCheckIn">Is Check In</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="phoneNumber"><span jhiTranslate="signInServerApp.eventCheckIn.phoneNumber">Phone Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -30,10 +30,10 @@
             <tr *ngFor="let eventCheckIn of eventCheckIns ;trackBy: trackId">
                 <td><a [routerLink]="['/event-check-in', eventCheckIn.id, 'view' ]">{{eventCheckIn.id}}</a></td>
                 <td>{{eventCheckIn.userName}}</td>
-                <td>{{eventCheckIn.phoneNumber}}</td>
                 <td>{{eventCheckIn.address}}</td>
                 <td>{{eventCheckIn.checkTime | date:'medium'}}</td>
                 <td>{{eventCheckIn.isCheckIn}}</td>
+                <td>{{eventCheckIn.phoneNumber}}</td>
                 <td class="text-right">
                     <div class="btn-group">
                         <button type="submit"
