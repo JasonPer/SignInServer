@@ -125,4 +125,16 @@ public class EventCheckInResource {
         eventCheckInService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
+
+    /**
+     * 通过用户名和手机进行签到
+     * @param userName
+     * @param phoneNumber
+     * @return
+     */
+    @PostMapping("/check_in")
+    public ResponseEntity isCheckIn(String userName,String phoneNumber){
+        String result = eventCheckInService.findByUserNameAndPhoneNumber(userName,phoneNumber);
+        return ResponseEntity.ok(result);
+    }
 }
