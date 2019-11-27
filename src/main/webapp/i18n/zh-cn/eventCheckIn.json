@@ -1,0 +1,26 @@
+{
+  "signInServerApp": {
+    "eventCheckIn": {
+      "home": {
+        "title": "Event Check Ins",
+        "createLabel": "创建新 Event Check In",
+        "createOrEditLabel": "创建或编辑 Event Check In",
+        "notFound": "No Event Check Ins found"
+      },
+      "created": "Event Check In {{ param }} 创建成功",
+      "updated": "Event Check In {{ param }} 更新成功",
+      "deleted": "Event Check In {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Event Check In {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Event Check In"
+      },
+      "userName": "User Name",
+      "phoneNumber": "Phone Number",
+      "address": "Address",
+      "checkTime": "Check Time",
+      "isCheckIn": "Is Check In"
+    }
+  }
+}

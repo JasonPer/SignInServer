@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="eventCheckIn">
+            <h2><span jhiTranslate="signInServerApp.eventCheckIn.detail.title">Event Check In</span> {{eventCheckIn.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="signInServerApp.eventCheckIn.userName">User Name</span></dt>
+                <dd>
+                    <span>{{eventCheckIn.userName}}</span>
+                </dd>
+                <dt><span jhiTranslate="signInServerApp.eventCheckIn.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{eventCheckIn.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="signInServerApp.eventCheckIn.address">Address</span></dt>
+                <dd>
+                    <span>{{eventCheckIn.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="signInServerApp.eventCheckIn.checkTime">Check Time</span></dt>
+                <dd>
+                    <span>{{eventCheckIn.checkTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="signInServerApp.eventCheckIn.isCheckIn">Is Check In</span></dt>
+                <dd>
+                    <span>{{eventCheckIn.isCheckIn}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/event-check-in', eventCheckIn.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

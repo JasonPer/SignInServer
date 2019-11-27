@@ -1,0 +1,26 @@
+{
+  "signInServerApp": {
+    "eventCheckIn": {
+      "home": {
+        "title": "Event Check Ins",
+        "createLabel": "Create a new Event Check In",
+        "createOrEditLabel": "Create or edit a Event Check In",
+        "notFound": "No Event Check Ins found"
+      },
+      "created": "A new Event Check In is created with identifier {{ param }}",
+      "updated": "A Event Check In is updated with identifier {{ param }}",
+      "deleted": "A Event Check In is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Event Check In {{ id }}?"
+      },
+      "detail": {
+        "title": "Event Check In"
+      },
+      "userName": "User Name",
+      "phoneNumber": "Phone Number",
+      "address": "Address",
+      "checkTime": "Check Time",
+      "isCheckIn": "Is Check In"
+    }
+  }
+}
