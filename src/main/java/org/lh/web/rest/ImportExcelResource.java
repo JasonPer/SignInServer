@@ -57,7 +57,7 @@ public class ImportExcelResource {
             }else if (isExcel2007(fileName)){
                 workbook = new XSSFWorkbook(inputStream);
             }else {
-                log.info("未知文件类型");
+                log.info("Unknown file type!");
             }
 
             int sheetsNumber = workbook.getNumberOfSheets();
