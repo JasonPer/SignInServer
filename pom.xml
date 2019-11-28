@@ -306,6 +306,12 @@
             <artifactId>poi-ooxml</artifactId>
             <version>4.1.0</version>
         </dependency>
+        <!-- fastJson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.56</version>
+        </dependency>
 
         <!-- Spring Cloud -->
         <dependency>

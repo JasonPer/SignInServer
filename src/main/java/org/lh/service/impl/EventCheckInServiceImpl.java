@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,7 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -112,5 +114,10 @@ public class EventCheckInServiceImpl implements EventCheckInService {
             return "签到成功:签到时间 "+newTime.format(DateTimeFormatter.ofPattern("yyyy年MM月dd日 HH:mm:ss"));
         }else
             return "签到失败:请检查用户名和手机号是否正确";
+    }
+
+    @Override
+    public List<EventCheckIn> getAllPersonDetails() {
+        return eventCheckInRepository.findAll();
     }
 }
